@@ -22,7 +22,7 @@ print("Starting Spam...")
 def message():                
     while True:
         for token in tokens:
-            r = requests.post(url=f'https://discord.com/api/v9/channels/ใส่IDห้อง/messages',headers={'authorization': token},json={"content":"ใส่ข้อความ"})
+            r =  session.post(url=f'https://discord.com/api/v9/channels/ใส่IDห้อง/messages',headers={'authorization': token},json={"content":"ใส่ข้อความ"})
             if 'retry_after' in r.text:
                 time.sleep(r.json()['retry_after'])
             else:
